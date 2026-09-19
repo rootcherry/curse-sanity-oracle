@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Testing and Coverage
+coverage/
+.jest/
+
+# OS Specific
+.DS_Store
+Thumbs.db
