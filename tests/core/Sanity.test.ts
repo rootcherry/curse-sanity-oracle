@@ -33,7 +33,7 @@ describe("Sanity Value Object", () => {
     const decreasedSanity = initialSanity.decrease(30);
 
     // Assert
-    expect(initialSanity.getAmount()).toBe(50); // Proved immutability!
+    expect(initialSanity.getAmount()).toBe(50); // Imutabilidade provada!
     expect(decreasedSanity.getAmount()).toBe(20);
   });
 

@@ -3,7 +3,7 @@
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "rootDir": "./src",
+    "rootDir": "./", // Changed from “./src” to “./” to cover the entire root directory
     "outDir": "./dist",
     "strict": true,
     "isolatedModules": true,
@@ -14,5 +14,5 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "jest"]
   },
-  "include": ["src"]
+  "include": ["src/**/*", "tests/**/*"] // It explicitly includes the src and the tests
 }

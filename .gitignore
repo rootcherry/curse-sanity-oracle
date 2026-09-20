@@ -12,3 +12,6 @@ coverage/
 # OS Specific
 .DS_Store
 Thumbs.db
+
+# VS Code local settings and preferences
+.vscode/

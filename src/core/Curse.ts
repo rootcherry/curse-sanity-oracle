@@ -1,4 +1,4 @@
-// src/core/curse.ts
+// src/core/Curse.ts
 export class Curse {
     private readonly id: string; // UUID or string > number
     private name: string;
