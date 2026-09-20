@@ -3,7 +3,7 @@ export class Sanity {
   private readonly amount: number;
 
   constructor(amount: number) {
-    this.validateRange(amount);
+    this.validateRange(amount); // The validation rule is contained within the object!
     this.amount = amount;
   }
 
