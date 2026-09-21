@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Testing and Coverage
+coverage/
+.jest/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# VS Code local settings and preferences
+.vscode/
+
+# Personal notes
+notes/personal/
