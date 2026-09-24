@@ -1,19 +1,31 @@
 // src/use-cases/ApplyCurseToSurvivorUseCase.ts
-import { Curse } from "../core/Curse.js";
+import { CurseRepository } from "../core/ports/CurseRepository.js";
 import { Sanity } from "../core/Sanity.js";
+
 export class ApplyCurseToSurvivorUseCase {
-  public execute(currentSanityValue: number, curse: Curse): Sanity {
-    // 1. Create the Sanity Value Object with the current value
+  constructor(private curseRepository: CurseRepository) {}
+
+  public async execute(
+    currentSanityValue: number,
+    curseId: string
+  ): Promise<Sanity> {
+    // 1. retrieve the curse from the “database” via the port (Interface)
+    const curse = await this.curseRepository.findById(curseId);
+
+    if (!curse) {
+      throw new Error("Curse not found in the Multiverse.");
+    }
+
+    // 2. create the Sanity Value Object with the current value
     const currentSanity = new Sanity(currentSanityValue);
 
-    // 2. Define the business rule for damage:
-    // Example: Each severity point of the curse subtracts 10 sanity points
+    // 3. calculate the damage based on the severity of the retrieved curse
     const damage = curse.getSeverity() * 10;
 
-    // 3. Apply the damage using the Value Object’s immutable method
-    const updateSanity = currentSanity.decrease(damage);
+    // 4. apply the damage using the immutable method
+    const updatedSanity = currentSanity.decrease(damage);
 
-    // 4. Return the new sanity state
-    return updateSanity;
+    // 5. return the new sanity state
+    return updatedSanity;
   }
 }
