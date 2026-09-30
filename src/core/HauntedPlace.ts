@@ -37,6 +37,12 @@ export class HauntedPlace {
     return this.paranormalLevel;
   }
 
+  public addCurse(curseId: string): void {
+    if (!this.curseIds.includes(curseId)) {
+      this.curseIds.push(curseId);
+    }
+  }
+
   public getCurseIds(): string[] {
     return this.curseIds;
   }

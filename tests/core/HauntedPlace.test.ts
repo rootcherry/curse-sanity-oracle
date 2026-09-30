@@ -25,4 +25,19 @@ describe("Haunted Place Entity Domain", () => {
       new HauntedPlace("place-001", "Himuro Mansion", 0, []);
     }).toThrow("Paranormal level must be between 1 and 100.");
   });
+
+  it("should add a curse without duplicates", () => {
+    const hauntedPlace = new HauntedPlace(
+      "place-001",
+      "Himuro Mansion",
+      66,
+      []
+    );
+
+    hauntedPlace.addCurse("Rope Curse");
+    hauntedPlace.addCurse("Rope Curse"); // Try adding a duplicate to test the rule!
+
+    // Use toStrictEqual to compare the contents of arrays.
+    expect(hauntedPlace.getCurseIds()).toStrictEqual(["Rope Curse"]);
+  });
 });
